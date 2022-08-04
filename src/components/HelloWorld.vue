@@ -32,8 +32,8 @@ age:122
 // ref can has object also
 
 setTimeout(() => {
-  console.log(userName.value);
-  userName.value = "s";
+  // console.log(userName.value);
+  userName.value.name = "s";
 }, 2000);
 
 // in setup always return a object
