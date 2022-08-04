@@ -18,9 +18,11 @@
 
     <div class="">
 
-      <!-- v-model  ( no need to use .value here with ref values, just use directly) -->
+    
       <input type="text" placeholder="firstname" v-model="firstName" />
-      <input type="text" placeholder="lastname"  v-model="lastName" />
+      <input type="text" placeholder="lastname" ref="lastNameRef" />
+
+       <button @click="setLastName">Set Last Name </button>
     </div>
   </div>
 </template>
@@ -35,6 +37,10 @@ const firstName = ref("");
 
 const lastName = ref("");
 
+
+//creating lastName ref  ( same as ref name in template)
+const lastNameRef=  ref(null)
+
 // watch is a function
 
 
@@ -42,9 +48,9 @@ const lastName = ref("");
 // 1. dependency of watch : when it will run
 // 2. function will run after change value
 
-watch(firstName,function(newVal,oldVal){
-  console.log(newVal, oldVal)
-})
+// watch(firstName,function(newVal,oldVal){
+//   console.log(newVal, oldVal)
+// })
 
 // more than one watchers
 
@@ -67,13 +73,15 @@ function setNewData() {
   age.value = 45;
 }
 
-// function setFirstName(event) {
-//   firstName.value = event.target.value;
-// }
 
-// function setLastName(event) {
-//   lastName.value = event.target.value;
-// }
+
+function setLastName() {
+  // lastNameRef is ref with value in template
+
+  lastName.value = lastNameRef.value.value;
+  console.log("LAST NAME ENTERED IS",  lastName.value)
+}
+
 
 
 
