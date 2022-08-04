@@ -2,13 +2,16 @@
   <div class="hello">
     <h1>{{ userName.name }}</h1>
     <h2>{{userName.age}}</h2>
+
+
+    <h4>{{userAge}}</h4>
   </div>
 </template>
 
 <script setup>
 //import reactive its work with object only
 // it doesn't wrap it with some other .value thing it provides direct object
-import {  reactive} from "vue";
+import {  ref,reactive, isReactive, isRef,toRefs} from "vue";
 
 // ref is a function || create reference not only dom reference but reactive values ( creates values)
 
@@ -25,7 +28,7 @@ import {  reactive} from "vue";
 // ref creates a object with value property
 
 
-// let userAge= ref(12);
+let userAge= ref(12);
 // let userName = ref({
 // name:'Ashutosh',
 // age:122
@@ -38,11 +41,42 @@ age:122
 });
 
 
+
+// Object is reactive but not values stored inside
+
+
+// console.log(userAge, userName)
+
+
+
+//isReactive and isRef
+
+// userAge.value is false ( not ref)
+
+console.log(">>>>>>>>isReactive userAge", isRef(userAge.value), userAge.value)
+console.log(">>>>>>>>isReactive userName", isReactive(userAge))
+
+
+// console.log(">>>>>>>>isReactive userName.name", isReactive(userName.name))
+// console.log(">>>>>>>>isReactive userName.age", isReactive(userName.age))
+
+
+
+// toRefs is used to create object keys values reactive
+
+const userRefs= toRefs(userName)
+
+
+
+
+// How to create nested objetc values reactive
+
+
 // ref can has object also
 
 setTimeout(() => {
   // console.log(userName.value);
-  userName.name = "s";
+  // userName.name = "s";
 }, 2000);
 
 // in setup always return a object
