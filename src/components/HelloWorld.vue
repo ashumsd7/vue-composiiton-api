@@ -2,7 +2,7 @@
   <div class="hello">
     <!-- <h1>{{ age }}</h1> -->
 
-    <UserData @change="change" :userName='fullName'  :age='age'/>
+    <UserData @change="change" :userName='fullName'  />
 
 
 
@@ -31,7 +31,7 @@
 
 <script setup>
 import UserData from "./UserData.vue";
-import { ref, computed , watch} from "vue";
+import { ref, computed , watch, provide} from "vue";
 
 // components:{
 //   UserData
@@ -53,6 +53,17 @@ const lastNameRef=  ref(null)
 function change(data){
 console.log(data)
 }
+
+
+
+const provideAge= ref(98)
+
+
+
+// provide is a function two args  ( identifier , varName)
+provide('userAge', provideAge)
+
+
 
 // watch is a function
 
