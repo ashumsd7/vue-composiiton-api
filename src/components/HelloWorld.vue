@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <h1>{{ age }}</h1>
+    <!-- <h1>{{ age }}</h1> -->
+
+    <UserData :userName='fullName'  :age='age'/>
 
 
 
@@ -9,7 +11,7 @@
     <h2>{{lastName}}</h2> -->
 
 
-    {{fullName}}
+    <!-- {{fullName}} -->
 
     <button @click="setNewData">change age</button>
 
@@ -28,7 +30,12 @@
 </template>
 
 <script setup>
+import UserData from "./UserData.vue";
 import { ref, computed , watch} from "vue";
+
+// components:{
+//   UserData
+// }
 
 
 
