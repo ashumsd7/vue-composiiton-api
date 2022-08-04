@@ -1,44 +1,34 @@
 <template>
   <div class="hello">
-    <h1>{{ x }}</h1>
+    <h1>{{ userName }}</h1>
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 // ref is a function || create reference not only dom reference but reactive values ( creates values)
-export default {
-  name: "HelloWorld",
-  // data() {
-  //   return {
-  //     property: 'value',
-  //   };
-  // },
 
+// name: "HelloWorld",
+// data() {
+//   return {
+//     property: 'value',
+//   };
+// },
 
-// set is created and run very early, you will not get access of props and methods 
-  setup(){
+// set is created and run very early, you will not get access of props and methods
 
-    // ref is for reactive
-    // ref creates a object with value property
+// ref is for reactive
+// ref creates a object with value property
 
-  let userName=   ref('Ashu');
-
-
+let userName = ref("Ashu");
 
 setTimeout(() => {
-  console.log(userName.value)
-  userName.value='s'
+  console.log(userName.value);
+  userName.value = "s";
 }, 2000);
 
-
-
 // in setup always return a object
-return { x:userName}
-
-
-  }
-};
+// return { x:userName}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
