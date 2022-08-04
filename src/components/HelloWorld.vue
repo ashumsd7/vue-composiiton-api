@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed , watch} from "vue";
 
 
 
@@ -34,6 +34,19 @@ const age = ref(12);
 const firstName = ref("");
 
 const lastName = ref("");
+
+// watch is a function
+
+
+// takes two params
+// 1. dependency of watch : when it will run
+// 2. function will run after change value
+
+watch(firstName,function(newVal,oldVal){
+  console.log(newVal, oldVal)
+})
+
+
 
 
 
