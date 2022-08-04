@@ -2,7 +2,7 @@
   <div class="hello">
     <!-- <h1>{{ age }}</h1> -->
 
-    <UserData :userName='fullName'  :age='age'/>
+    <UserData @change="change" :userName='fullName'  :age='age'/>
 
 
 
@@ -47,6 +47,12 @@ const lastName = ref("");
 
 //creating lastName ref  ( same as ref name in template)
 const lastNameRef=  ref(null)
+
+
+
+function change(data){
+console.log(data)
+}
 
 // watch is a function
 
