@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
-    <h1>{{ userName }}</h1>
+    <h1>{{ userName.name }}</h1>
+    <h2>{{userName.age}}</h2>
   </div>
 </template>
 
@@ -20,7 +21,15 @@ import { ref } from "vue";
 // ref is for reactive
 // ref creates a object with value property
 
-let userName = ref("Ashu");
+
+// let userAge= ref(12);
+let userName = ref({
+name:'Ashutosh',
+age:122
+});
+
+
+// ref can has object also
 
 setTimeout(() => {
   console.log(userName.value);
