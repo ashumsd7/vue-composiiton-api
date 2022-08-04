@@ -6,7 +6,10 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+//import reactive its work with object only
+// it doesn't wrap it with some other .value thing it provides direct object
+import {  reactive} from "vue";
+
 // ref is a function || create reference not only dom reference but reactive values ( creates values)
 
 // name: "HelloWorld",
@@ -23,7 +26,13 @@ import { ref } from "vue";
 
 
 // let userAge= ref(12);
-let userName = ref({
+// let userName = ref({
+// name:'Ashutosh',
+// age:122
+// });
+
+// reactive works with object only
+let userName = reactive({
 name:'Ashutosh',
 age:122
 });
@@ -33,7 +42,7 @@ age:122
 
 setTimeout(() => {
   // console.log(userName.value);
-  userName.value.name = "s";
+  userName.name = "s";
 }, 2000);
 
 // in setup always return a object
