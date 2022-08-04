@@ -46,6 +46,14 @@ watch(firstName,function(newVal,oldVal){
   console.log(newVal, oldVal)
 })
 
+// more than one watchers
+
+watch([firstName, lastName],function(newValues,oldValues){
+  console.log(newValues, oldValues)
+})
+
+// newValues, oldValues will get two arrays
+
 
 
 
